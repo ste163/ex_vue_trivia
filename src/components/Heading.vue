@@ -2,15 +2,24 @@
   <header>
     <h1>Star Wars</h1>
     <h2>Trivia</h2>
-    <section class="card card__difficulty">
-      <h3>Difficulty Selection</h3>
-      <div class="buttons">
-        <button>Reset</button>
-        <button>Easy</button>
-        <button>Medium</button>
-        <button>Hard</button>
-      </div>
-    </section>
+    <div class="controls">
+      <section class="card card__difficulty">
+        <h3>Choose a side</h3>
+        <div class="buttons">
+          <button>Light</button>
+          <button>Dark</button>
+        </div>
+      </section>
+      <section class="card card__difficulty">
+        <h3>Difficulty Selection</h3>
+        <div class="buttons">
+          <button>Reset</button>
+          <button>Easy</button>
+          <button>Medium</button>
+          <button>Hard</button>
+        </div>
+      </section>
+    </div>
   </header>
 </template>
 
@@ -28,6 +37,12 @@ header {
   text-align: center;
   font-family: "Bowlby One SC", sans-serif;
   color: var(--yellow);
+}
+
+.controls {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 h1 {
