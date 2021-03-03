@@ -4,7 +4,7 @@
     <h2>Trivia</h2>
     <div class="controls">
       <section class="card card__difficulty">
-        <h3>Choose a side</h3>
+        <h3>Choose side</h3>
         <div class="buttons">
           <button
             :class="{ button__active: this.currentTheme === 'light' }"
@@ -23,12 +23,14 @@
         </div>
       </section>
       <section class="card card__difficulty">
-        <h3>Difficulty Selection</h3>
+        <h3>Select difficulty</h3>
         <div class="buttons">
           <button>Reset</button>
-          <button>Easy</button>
-          <button>Medium</button>
-          <button>Hard</button>
+          <button :class="{ button__active: this.difficultyEasy }">Easy</button>
+          <button :class="{ button__active: this.difficultyMedium }">
+            Medium
+          </button>
+          <button :class="{ button__active: this.difficultyHard }">Hard</button>
         </div>
       </section>
     </div>
@@ -41,7 +43,10 @@ import SetColorTheme from "../utils/SetColorTheme";
 export default {
   data() {
     return {
-      currentTheme: "light"
+      currentTheme: "dark",
+      difficultyEasy: false,
+      difficultyMedium: false,
+      difficultyHard: false
     };
   },
   methods: {
@@ -52,6 +57,10 @@ export default {
         : (this.currentTheme = "dark");
       SetColorTheme(this.currentTheme);
     }
+    // setDifficulty(e) {
+    //   // Set difficulty active for selected button
+    //  Then emit signal for which was set
+    // }
   }
 };
 </script>
@@ -66,6 +75,9 @@ header {
   text-align: center;
   font-family: "Bowlby One SC", sans-serif;
   color: var(--yellow);
+  margin-bottom: 5em;
+
+  transition: color var(--themeTransition);
 }
 
 .controls {

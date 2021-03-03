@@ -3,6 +3,7 @@
     <heading />
     <!-- Play around with animating between list states -->
     <div class="trivia__container">
+      <!-- DO NOT DISPLAY CARDS until difficulty has been selected, then animate the cards in -->
       <template v-for="item in triviaItems">
         <trivia-card :item="item" :key="item.question" />
       </template>
@@ -45,6 +46,8 @@ export default {
   --shadow: -4px -4px 9px #201e24, 4px 4px 9px rgba(0, 0, 0, 0.1);
   --shadowInset: inset -4px -4px 9px #201e24,
     inset 4px 4px 9px rgba(0, 0, 0, 0.1);
+
+  --themeTransition: 0.5s;
 }
 
 body {
@@ -57,6 +60,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--black);
+
+  transition: background-color var(--themeTransition);
 }
 
 p {
@@ -84,7 +89,8 @@ button {
 
   box-shadow: var(--shadow);
 
-  transition: 0.1s;
+  transition: background-color var(--themeTransition),
+    box-shadow var(--themeTransition), button 0.1s;
 }
 
 button:hover {
@@ -115,5 +121,8 @@ button:active,
 
   background-color: var(--lightestBlack);
   box-shadow: var(--shadow);
+
+  transition: background-color var(--themeTransition),
+    box-shadow var(--themeTransition);
 }
 </style>

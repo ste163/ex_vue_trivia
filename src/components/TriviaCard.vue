@@ -9,25 +9,22 @@
 <script>
 export default {
   props: {
-    item: Object,
-  },
+    item: Object
+  }
 };
 </script>
 
 <style scoped>
 .card__trivia {
   display: grid;
-
   flex-basis: 20%;
   min-width: 11em;
-
   font-size: 1.5em;
 }
 
 .trivia__difficulty {
   grid-row: 1;
   grid-column: 1 / 3;
-
   padding: 0.5em 0em 1em 1em;
 
   font-size: 0.75em;
@@ -38,11 +35,10 @@ export default {
   grid-row: 2;
   grid-column: 1 / 3;
   align-self: start;
+  padding: 0em 1em 1em 1em;
 
   font-size: 0.8em;
   letter-spacing: 0.1em;
-
-  padding: 0em 1em 1em 1em;
 }
 
 .trivia__reveal {
