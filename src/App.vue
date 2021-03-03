@@ -30,11 +30,11 @@ export default {
 
 <style>
 :root {
-  --black: #292535;
-  --lightBlack: #2c2839;
+  --black: #232129;
+  --lightBlack: #27242d;
   --fontWhite: #e6e6e6;
 
-  --shadow: -6px -6px 9px #2e2c3c, 6px 6px 9px rgba(0, 0, 0, 0.1);
+  --shadow: -4px -4px 9px #2c2933, 4px 4px 9px rgba(0, 0, 0, 0.1);
   --shadowInset: inset -6px -6px 9px #2e2c3c,
     inset 6px 6px 9px rgba(0, 0, 0, 0.1);
 }
