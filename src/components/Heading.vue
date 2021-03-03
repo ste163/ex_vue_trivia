@@ -23,7 +23,7 @@
         </div>
       </section>
       <section class="card card__difficulty">
-        <h3>Select difficulty</h3>
+        <h3>Select question difficulty</h3>
         <div class="buttons">
           <button @click="setDifficulty" value="reset">Reset</button>
           <button
@@ -121,14 +121,16 @@ header {
 
 h1 {
   font-size: 4em;
-  margin-bottom: 0;
+  margin-bottom: 0.2em;
   letter-spacing: 0.3em;
+  line-height: 1em;
 }
 
 h2 {
+  font-family: "Comfortaa", sans-serif;
   font-size: 2em;
   margin-top: 0;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.3em;
 }
 
 h3 {
