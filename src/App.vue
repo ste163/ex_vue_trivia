@@ -36,6 +36,7 @@ export default {
   --black: #161419;
   --lightestBlack: #19171c;
   --lighterBlack: #25222a;
+  --lightBlack: #2d2933;
 
   --fontWhite: #e6e6e6;
   --yellow: #e5e575;
@@ -43,8 +44,8 @@ export default {
 
   /* Shadows */
   --shadow: -4px -4px 9px #201e24, 4px 4px 9px rgba(0, 0, 0, 0.1);
-  --shadowInset: inset -6px -6px 9px #2e2c3c,
-    inset 6px 6px 9px rgba(0, 0, 0, 0.1);
+  --shadowInset: inset -4px -4px 9px #201e24,
+    inset 4px 4px 9px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -76,6 +77,7 @@ button {
   padding: 0.5em 1em;
 
   cursor: pointer;
+  outline: none;
   border: none;
   border-radius: 30px;
   background-color: transparent;

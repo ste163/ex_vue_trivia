@@ -60,5 +60,16 @@ export default {
   width: 70%;
 
   background-color: var(--lighterBlack);
+
+  transition: 0.1s;
+}
+
+.card__reveal:hover {
+  background-color: var(--lightBlack);
+}
+.card__reveal:active {
+  background-color: var(--lighterBlack);
+  box-shadow: var(--shadowInset);
+  transform: translateY(1.2px);
 }
 </style>
