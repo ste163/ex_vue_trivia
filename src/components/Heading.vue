@@ -25,7 +25,6 @@
       <section class="card card__difficulty">
         <h3>Select question difficulty</h3>
         <div class="buttons">
-          <button @click="setDifficulty" value="reset">Reset</button>
           <button
             :class="{ button__active__resetable: this.difficultyEasy }"
             @click="setDifficulty"
@@ -47,6 +46,12 @@
           >
             Hard
           </button>
+        </div>
+      </section>
+      <section class="card card__difficulty">
+        <h3>Play again</h3>
+        <div class="buttons">
+          <button @click="setDifficulty" value="reset">Reset</button>
         </div>
       </section>
     </div>
@@ -122,15 +127,16 @@ header {
 h1 {
   font-size: 4em;
   margin-bottom: 0.2em;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
   line-height: 1em;
+  width: min-content;
 }
 
 h2 {
   font-family: "Comfortaa", sans-serif;
-  font-size: 2em;
+  font-size: 3em;
   margin-top: 0;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
 }
 
 h3 {
