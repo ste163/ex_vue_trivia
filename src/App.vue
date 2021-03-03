@@ -18,13 +18,13 @@ import TriviaCard from "./components/TriviaCard.vue";
 export default {
   data() {
     return {
-      triviaItems: data,
+      triviaItems: data
     };
   },
   components: {
     Heading,
-    TriviaCard,
-  },
+    TriviaCard
+  }
 };
 </script>
 
@@ -40,7 +40,6 @@ export default {
 
   --fontWhite: #e6e6e6;
   --yellow: #e5e575;
-  --lavendar: #e0bff3;
 
   /* Shadows */
   --shadow: -4px -4px 9px #201e24, 4px 4px 9px rgba(0, 0, 0, 0.1);
@@ -92,7 +91,13 @@ button:hover {
   background-color: var(--lightBlack);
 }
 
-button:active {
+.button__active:hover {
+  background-color: var(--lighterBlack);
+  cursor: auto;
+}
+
+button:active,
+.button__active {
   background-color: var(--lighterBlack);
   box-shadow: var(--shadowInset);
   transform: translateY(1.2px);

@@ -6,8 +6,20 @@
       <section class="card card__difficulty">
         <h3>Choose a side</h3>
         <div class="buttons">
-          <button>Light</button>
-          <button>Dark</button>
+          <button
+            :class="{ button__active: this.currentTheme === 'light' }"
+            @click="handleThemeClick"
+            value="light"
+          >
+            Light
+          </button>
+          <button
+            :class="{ button__active: this.currentTheme === 'dark' }"
+            @click="handleThemeClick"
+            value="dark"
+          >
+            Dark
+          </button>
         </div>
       </section>
       <section class="card card__difficulty">
@@ -24,7 +36,24 @@
 </template>
 
 <script>
-export default {};
+import SetColorTheme from "../utils/SetColorTheme";
+
+export default {
+  data() {
+    return {
+      currentTheme: "light"
+    };
+  },
+  methods: {
+    handleThemeClick(e) {
+      const clicked = e.currentTarget.value;
+      clicked === "light"
+        ? (this.currentTheme = "light")
+        : (this.currentTheme = "dark");
+      SetColorTheme(this.currentTheme);
+    }
+  }
+};
 </script>
 
 <style scoped>
