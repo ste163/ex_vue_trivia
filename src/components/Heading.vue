@@ -11,17 +11,23 @@ export default {};
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap");
+
 header {
   text-align: center;
+  font-family: "Bowlby One SC", sans-serif;
+  color: var(--yellow);
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
   margin-bottom: 0;
+  letter-spacing: 0.3em;
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin-top: 0;
+  letter-spacing: 0.5em;
 }
 </style>

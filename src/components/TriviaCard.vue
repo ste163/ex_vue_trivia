@@ -2,6 +2,7 @@
   <section class="trivia__card">
     <p class="card__difficulty">{{ item.difficulty }}</p>
     <p class="card__question">{{ item.question }}</p>
+    <button class="card__reveal">Reveal answer</button>
   </section>
 </template>
 
@@ -16,20 +17,22 @@ export default {
 <style scoped>
 .trivia__card {
   display: grid;
-  border-radius: 20px;
-  background-color: var(--lightBlack);
-
-  font-family: sans-serif;
 
   margin: 1em;
-  box-shadow: var(--shadow);
-  font-size: 1.5em;
+  border-radius: 20px;
   flex-basis: 20%;
+  min-width: 11em;
+
+  background-color: var(--lightestBlack);
+  box-shadow: var(--shadow);
+
+  font-family: sans-serif;
+  font-size: 1.5em;
 }
 
 .card__difficulty {
-  grid-template-rows: 1;
-  grid-template-columns: 1 / 3;
+  grid-row: 1;
+  grid-column: 1 / 3;
 
   padding: 0.5em 0em 1em 1em;
 
@@ -38,13 +41,24 @@ export default {
 }
 
 .card__question {
-  grid-template-rows: 2;
-  grid-template-columns: 1 / 3;
+  grid-row: 2;
+  grid-column: 1 / 3;
   align-self: start;
 
   font-size: 0.8em;
   letter-spacing: 0.1em;
 
   padding: 0em 1em 1em 1em;
+}
+
+.card__reveal {
+  grid-row: 3;
+  grid-column: 1 / 3;
+  align-self: end;
+  justify-self: center;
+
+  width: 70%;
+
+  background-color: var(--lighterBlack);
 }
 </style>
