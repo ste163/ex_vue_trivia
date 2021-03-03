@@ -5,6 +5,7 @@
     <div class="trivia__container">
       <!-- DO NOT DISPLAY CARDS until difficulty has been selected, then animate the cards in -->
       <!-- When state changes, update the trivia list to display -->
+      <!-- Try adding the click event change on the template below -->
       <template v-for="item in triviaItems">
         <trivia-card :item="item" :key="item.question" />
       </template>
@@ -13,14 +14,15 @@
 </template>
 
 <script>
-import data from "./trivia";
+// import data from "./trivia";
 import Heading from "./components/Heading.vue";
 import TriviaCard from "./components/TriviaCard.vue";
 
 export default {
   data() {
     return {
-      triviaItems: data
+      // When we have the listeners, use the imported data to change this state from []
+      triviaItems: []
     };
   },
   components: {
@@ -53,8 +55,9 @@ export default {
 
 body {
   display: flex;
-
   align-content: center;
+  justify-content: space-around;
+
   color: var(--fontWhite);
   letter-spacing: 0.1em;
 
