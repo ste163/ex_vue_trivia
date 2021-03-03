@@ -1,8 +1,8 @@
 <template>
-  <section class="trivia__card">
-    <p class="card__difficulty">{{ item.difficulty }}</p>
-    <p class="card__question">{{ item.question }}</p>
-    <button class="card__reveal">Reveal answer</button>
+  <section class="card card__trivia">
+    <p class="trivia__difficulty">{{ item.difficulty }}</p>
+    <p class="trivia__question">{{ item.question }}</p>
+    <button class="trivia__reveal">Reveal answer</button>
   </section>
 </template>
 
@@ -15,22 +15,16 @@ export default {
 </script>
 
 <style scoped>
-.trivia__card {
+.card__trivia {
   display: grid;
 
-  margin: 1em;
-  border-radius: 20px;
   flex-basis: 20%;
   min-width: 11em;
 
-  background-color: var(--lightestBlack);
-  box-shadow: var(--shadow);
-
-  font-family: sans-serif;
   font-size: 1.5em;
 }
 
-.card__difficulty {
+.trivia__difficulty {
   grid-row: 1;
   grid-column: 1 / 3;
 
@@ -40,7 +34,7 @@ export default {
   font-weight: 100;
 }
 
-.card__question {
+.trivia__question {
   grid-row: 2;
   grid-column: 1 / 3;
   align-self: start;
@@ -51,25 +45,12 @@ export default {
   padding: 0em 1em 1em 1em;
 }
 
-.card__reveal {
+.trivia__reveal {
   grid-row: 3;
   grid-column: 1 / 3;
   align-self: end;
   justify-self: center;
 
   width: 70%;
-
-  background-color: var(--lighterBlack);
-
-  transition: 0.1s;
-}
-
-.card__reveal:hover {
-  background-color: var(--lightBlack);
-}
-.card__reveal:active {
-  background-color: var(--lighterBlack);
-  box-shadow: var(--shadowInset);
-  transform: translateY(1.2px);
 }
 </style>

@@ -73,6 +73,8 @@ button {
   font-size: 0.8em;
   color: var(--fontWhite);
 
+  background-color: var(--lighterBlack);
+
   margin-bottom: 0.5em;
   padding: 0.5em 1em;
 
@@ -80,14 +82,33 @@ button {
   outline: none;
   border: none;
   border-radius: 30px;
-  background-color: transparent;
 
   box-shadow: var(--shadow);
+
+  transition: 0.1s;
+}
+
+button:hover {
+  background-color: var(--lightBlack);
+}
+
+button:active {
+  background-color: var(--lighterBlack);
+  box-shadow: var(--shadowInset);
+  transform: translateY(1.2px);
 }
 
 .trivia__container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+}
+
+.card {
+  margin: 1em;
+  border-radius: 20px;
+
+  background-color: var(--lightestBlack);
+  box-shadow: var(--shadow);
 }
 </style>
