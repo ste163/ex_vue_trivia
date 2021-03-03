@@ -25,12 +25,28 @@
       <section class="card card__difficulty">
         <h3>Select difficulty</h3>
         <div class="buttons">
-          <button>Reset</button>
-          <button :class="{ button__active: this.difficultyEasy }">Easy</button>
-          <button :class="{ button__active: this.difficultyMedium }">
+          <button @click="setDifficulty" value="reset">Reset</button>
+          <button
+            :class="{ button__active__resetable: this.difficultyEasy }"
+            @click="setDifficulty"
+            value="easy"
+          >
+            Easy
+          </button>
+          <button
+            :class="{ button__active__resetable: this.difficultyMedium }"
+            @click="setDifficulty"
+            value="medium"
+          >
             Medium
           </button>
-          <button :class="{ button__active: this.difficultyHard }">Hard</button>
+          <button
+            :class="{ button__active__resetable: this.difficultyHard }"
+            @click="setDifficulty"
+            value="hard"
+          >
+            Hard
+          </button>
         </div>
       </section>
     </div>
@@ -56,11 +72,28 @@ export default {
         ? (this.currentTheme = "light")
         : (this.currentTheme = "dark");
       SetColorTheme(this.currentTheme);
+    },
+    setDifficulty(e) {
+      const clicked = e.currentTarget.value;
+      // Set difficulty active for selected button
+      // then emit signal for which was set
+      switch (clicked) {
+        case "reset":
+          this.difficultyEasy = false;
+          this.difficultyMedium = false;
+          this.difficultyHard = false;
+          break;
+        case "easy":
+          this.difficultyEasy = !this.difficultyEasy;
+          break;
+        case "medium":
+          this.difficultyMedium = !this.difficultyMedium;
+          break;
+        case "hard":
+          this.difficultyHard = !this.difficultyHard;
+          break;
+      }
     }
-    // setDifficulty(e) {
-    //   // Set difficulty active for selected button
-    //  Then emit signal for which was set
-    // }
   }
 };
 </script>
