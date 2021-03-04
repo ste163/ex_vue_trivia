@@ -7,7 +7,7 @@ export default function SetColorTheme(currentTheme) {
     root.setProperty("--lighterBlack", "#f5f5f5");
     root.setProperty("--lightBlack", "#e9e9e9");
     root.setProperty("--fontWhite", "#161616");
-    root.setProperty("--yellow", "#4a4a4a");
+    root.setProperty("--yellow", "#919802");
     root.setProperty(
       "--shadow",
       "-4px -4px 9px #e1e1e1, 4px 4px 9px rgba(0, 0, 0, 0.1)"
