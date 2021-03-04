@@ -97,15 +97,30 @@ export default {
           this.difficultyEasy = false;
           this.difficultyMedium = false;
           this.difficultyHard = false;
+          this.$emit("select-difficulty", {
+            selected: "reset"
+          });
           break;
         case "easy":
           this.difficultyEasy = !this.difficultyEasy;
+          this.$emit("select-difficulty", {
+            selected: "easy",
+            state: this.difficultyEasy
+          });
           break;
         case "medium":
           this.difficultyMedium = !this.difficultyMedium;
+          this.$emit("select-difficulty", {
+            selected: "medium",
+            state: this.difficultyEasy
+          });
           break;
         case "hard":
           this.difficultyHard = !this.difficultyHard;
+          this.$emit("select-difficulty", {
+            selected: "hard",
+            state: this.difficultyEasy
+          });
           break;
       }
     }

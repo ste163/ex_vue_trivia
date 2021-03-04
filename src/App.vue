@@ -1,6 +1,6 @@
 <template>
   <section id="app">
-    <heading />
+    <heading @select-difficulty="handleSelectedDifficulty" />
     <!-- Play around with animating between list states -->
     <div class="trivia__container">
       <!-- DO NOT DISPLAY CARDS until difficulty has been selected, then animate the cards in -->
@@ -28,6 +28,11 @@ export default {
   components: {
     Heading,
     TriviaCard
+  },
+  methods: {
+    handleSelectedDifficulty(selected) {
+      console.log("UPDATE ARRAY", selected);
+    }
   }
 };
 </script>
