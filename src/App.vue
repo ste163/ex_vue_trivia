@@ -8,6 +8,7 @@
     />
     <transition-group class="trivia__container" name="list">
       <trivia-card
+        class="list-item"
         v-for="item in triviaItems"
         :item="item"
         :key="item.question"
@@ -182,7 +183,16 @@ button:active,
 /* transition-group animations */
 .list {
   display: flex;
+  backface-visibility: hidden;
+  z-index: 1;
+}
+
+.list-move {
   transition: all 0.5s;
+}
+
+.list-enter-active {
+  transition: all 0.3s ease-out;
 }
 
 .list-enter {
@@ -190,19 +200,11 @@ button:active,
   opacity: 0;
 }
 
-.list-leave-to {
-  transition: all 0.5s;
+.list-leave-active {
+  transition: all 0.5s ease-out;
+  transform: translateY(50%);
+  position: absolute;
   opacity: 0;
-  transform: translateY(20px);
-
-  /* position: absolute; */
-}
-
-.list-enter-active {
-  transition: all 0.3s;
-}
-
-.list-move {
-  transition: transform 0.3s;
+  z-index: 0;
 }
 </style>
