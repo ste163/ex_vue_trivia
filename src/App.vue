@@ -47,8 +47,8 @@ export default {
 
   /* Shadows */
   --shadow: -4px -4px 9px #201e24, 4px 4px 9px rgba(0, 0, 0, 0.1);
-  --shadowInset: inset -4px -4px 9px #343336,
-    inset 4px 4px 9px rgba(0, 0, 0, 0.35);
+  --shadowInset: inset -4px -4px 9px #262527,
+    inset 4px 4px 9px rgba(0, 0, 0, 0.5);
 
   --themeTransition: 0.3s;
 }

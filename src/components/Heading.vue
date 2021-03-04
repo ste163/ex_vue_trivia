@@ -1,6 +1,6 @@
 <template>
   <header>
-    <svg width="286" height="153" id="svg2">
+    <svg width="286" height="153" id="svg">
       <title>Star Wars logo</title>
       <g id="svg_container-star-wars" transform="translate(0,-899.36218)">
         <path
@@ -132,6 +132,10 @@ header {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+svg {
+  margin-top: 2em;
 }
 
 #svg_star-wars {

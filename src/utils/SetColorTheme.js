@@ -29,7 +29,7 @@ export default function SetColorTheme(currentTheme) {
     );
     root.setProperty(
       "--shadowInset",
-      "inset -4px -4px 9px #201e24, inset 4px 4px 9px rgba(0, 0, 0, 0.1)"
+      "inset -4px -4px 9px #262527,inset 4px 4px 9px rgba(0, 0, 0, 0.5)"
     );
   }
 }
