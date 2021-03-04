@@ -7,7 +7,7 @@
         trivia__answer: item.answerShown === true
       }"
     >
-      {{ item.question }}
+      {{ displayCardText }}
     </p>
     <button
       class="trivia__reveal"
@@ -29,6 +29,14 @@ export default {
   methods: {
     handleRevealClick() {
       this.$emit("reveal-answer", this.item);
+    }
+  },
+  computed: {
+    displayCardText() {
+      if (this.item.answerShown) {
+        return this.item.answer;
+      }
+      return this.item.question;
     }
   }
 };
@@ -59,10 +67,17 @@ export default {
 
   font-size: 0.8em;
   letter-spacing: 0.1em;
+
+  transition: 0.3s;
 }
 
 .trivia__answer {
-  color: red;
+  color: var(--yellow);
+  box-shadow: var(--shadowInset);
+  border-radius: 20px;
+  padding: 1em;
+  margin: 0.5em;
+  text-align: center;
 }
 
 .trivia__reveal {
