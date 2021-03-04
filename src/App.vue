@@ -6,24 +6,24 @@
       :isDifficultyHardActive="isDifficultyHardActive"
       @select-difficulty="handleSelectedDifficulty"
     />
-    <div class="trivia__container">
-      <!-- ANIMATE CHANGES TO STATE LIST -->
-      <template v-for="item in triviaItems">
-        <trivia-card :item="item" :key="item.question" />
-      </template>
-    </div>
+    <transition-group class="trivia__container" name="list">
+      <trivia-card
+        v-for="item in triviaItems"
+        :item="item"
+        :key="item.question"
+      />
+    </transition-group>
   </section>
 </template>
 
 <script>
-// import data from "./trivia";
+import data from "./trivia";
 import Heading from "./components/Heading.vue";
 import TriviaCard from "./components/TriviaCard.vue";
 
 export default {
   data() {
     return {
-      // When we have the listeners, use the imported data to change this state from []
       triviaItems: [],
       isDifficultyEasyActive: false,
       isDifficultyMediumActive: false,
@@ -35,9 +35,26 @@ export default {
     TriviaCard
   },
   methods: {
+    filterTriviaItems() {
+      const holdingArray = data.filter(item => {
+        // Check if Easy is selected, if this item is also easy, add to holding array
+        if ((item.difficulty === "easy") & this.isDifficultyEasyActive) {
+          return item;
+        }
+        if ((item.difficulty === "medium") & this.isDifficultyMediumActive) {
+          return item;
+        }
+        if ((item.difficulty === "hard") & this.isDifficultyHardActive) {
+          return item;
+        }
+      });
+      this.triviaItems = holdingArray;
+    },
     handleSelectedDifficulty(selected) {
+      // Change active difficulty state by button selection
       switch (selected) {
         case "reset":
+          this.triviaItems = [];
           this.isDifficultyEasyActive = false;
           this.isDifficultyMediumActive = false;
           this.isDifficultyHardActive = false;
@@ -52,6 +69,8 @@ export default {
           this.isDifficultyHardActive = !this.isDifficultyHardActive;
           break;
       }
+      // Filter trivia items by currently active selections
+      this.filterTriviaItems();
     }
   }
 };
@@ -158,5 +177,32 @@ button:active,
 
   transition: background-color var(--themeTransition),
     box-shadow var(--themeTransition);
+}
+
+/* transition-group animations */
+.list {
+  display: flex;
+  transition: all 0.5s;
+}
+
+.list-enter {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.list-leave-to {
+  transition: all 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+
+  /* position: absolute; */
+}
+
+.list-enter-active {
+  transition: all 0.3s;
+}
+
+.list-move {
+  transition: transform 0.3s;
 }
 </style>
