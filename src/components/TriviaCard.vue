@@ -1,8 +1,23 @@
 <template>
   <section class="card card__trivia">
     <p class="trivia__difficulty">{{ item.difficulty }}</p>
-    <p class="trivia__question">{{ item.question }}</p>
-    <button class="trivia__reveal">Reveal answer</button>
+    <p
+      class="trivia__question"
+      :class="{
+        trivia__answer: item.answerShown === true
+      }"
+    >
+      {{ item.question }}
+    </p>
+    <button
+      class="trivia__reveal"
+      :class="{
+        reveal__answered: item.answerShown === true
+      }"
+      @click="handleRevealClick"
+    >
+      Reveal answer
+    </button>
   </section>
 </template>
 
@@ -10,6 +25,11 @@
 export default {
   props: {
     item: Object
+  },
+  methods: {
+    handleRevealClick() {
+      this.$emit("reveal-answer", this.item);
+    }
   }
 };
 </script>
@@ -41,6 +61,10 @@ export default {
   letter-spacing: 0.1em;
 }
 
+.trivia__answer {
+  color: red;
+}
+
 .trivia__reveal {
   grid-row: 3;
   grid-column: 1 / 3;
@@ -48,5 +72,11 @@ export default {
   justify-self: center;
 
   width: 70%;
+  transition: 0.3s;
+}
+
+.reveal__answered {
+  cursor: auto;
+  opacity: 0;
 }
 </style>

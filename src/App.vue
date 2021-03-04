@@ -9,9 +9,10 @@
     <transition-group class="trivia__container" name="list">
       <trivia-card
         class="list-item"
-        v-for="item in triviaItems"
+        v-for="item in filterTriviaItems"
         :item="item"
         :key="item.question"
+        @reveal-answer="handleReveal"
       />
     </transition-group>
   </section>
@@ -25,7 +26,7 @@ import TriviaCard from "./components/TriviaCard.vue";
 export default {
   data() {
     return {
-      triviaItems: [],
+      triviaItems: [...data],
       isDifficultyEasyActive: false,
       isDifficultyMediumActive: false,
       isDifficultyHardActive: false
@@ -36,29 +37,14 @@ export default {
     TriviaCard
   },
   methods: {
-    filterTriviaItems() {
-      const holdingArray = data.filter(item => {
-        // Check if Easy is selected, if this item is also easy, add to holding array
-        if ((item.difficulty === "easy") & this.isDifficultyEasyActive) {
-          return item;
-        }
-        if ((item.difficulty === "medium") & this.isDifficultyMediumActive) {
-          return item;
-        }
-        if ((item.difficulty === "hard") & this.isDifficultyHardActive) {
-          return item;
-        }
-      });
-      this.triviaItems = holdingArray;
-    },
     handleSelectedDifficulty(selected) {
       // Change active difficulty state by button selection
       switch (selected) {
         case "reset":
-          this.triviaItems = [];
           this.isDifficultyEasyActive = false;
           this.isDifficultyMediumActive = false;
           this.isDifficultyHardActive = false;
+          this.triviaItems.forEach(t => (t.answerShown = false));
           break;
         case "easy":
           this.isDifficultyEasyActive = !this.isDifficultyEasyActive;
@@ -72,6 +58,26 @@ export default {
       }
       // Filter trivia items by currently active selections
       this.filterTriviaItems();
+    },
+    handleReveal(item) {
+      item.answerShown = true;
+    }
+  },
+  computed: {
+    filterTriviaItems() {
+      const holdingArray = this.triviaItems.filter(item => {
+        // Check if Easy is selected, if this item is also easy, add to holding array
+        if ((item.difficulty === "easy") & this.isDifficultyEasyActive) {
+          return item;
+        }
+        if ((item.difficulty === "medium") & this.isDifficultyMediumActive) {
+          return item;
+        }
+        if ((item.difficulty === "hard") & this.isDifficultyHardActive) {
+          return item;
+        }
+      });
+      return holdingArray;
     }
   }
 };
