@@ -1,11 +1,13 @@
 <template>
   <section id="app">
-    <heading @select-difficulty="handleSelectedDifficulty" />
-    <!-- Play around with animating between list states -->
+    <heading
+      :isDifficultyEasyActive="isDifficultyEasyActive"
+      :isDifficultyMediumActive="isDifficultyMediumActive"
+      :isDifficultyHardActive="isDifficultyHardActive"
+      @select-difficulty="handleSelectedDifficulty"
+    />
     <div class="trivia__container">
-      <!-- DO NOT DISPLAY CARDS until difficulty has been selected, then animate the cards in -->
-      <!-- When state changes, update the trivia list to display -->
-      <!-- Try adding the click event change on the template below -->
+      <!-- ANIMATE CHANGES TO STATE LIST -->
       <template v-for="item in triviaItems">
         <trivia-card :item="item" :key="item.question" />
       </template>
@@ -22,7 +24,10 @@ export default {
   data() {
     return {
       // When we have the listeners, use the imported data to change this state from []
-      triviaItems: []
+      triviaItems: [],
+      isDifficultyEasyActive: false,
+      isDifficultyMediumActive: false,
+      isDifficultyHardActive: false
     };
   },
   components: {
@@ -31,7 +36,22 @@ export default {
   },
   methods: {
     handleSelectedDifficulty(selected) {
-      console.log("UPDATE ARRAY", selected);
+      switch (selected) {
+        case "reset":
+          this.isDifficultyEasyActive = false;
+          this.isDifficultyMediumActive = false;
+          this.isDifficultyHardActive = false;
+          break;
+        case "easy":
+          this.isDifficultyEasyActive = !this.isDifficultyEasyActive;
+          break;
+        case "medium":
+          this.isDifficultyMediumActive = !this.isDifficultyMediumActive;
+          break;
+        case "hard":
+          this.isDifficultyHardActive = !this.isDifficultyHardActive;
+          break;
+      }
     }
   }
 };
